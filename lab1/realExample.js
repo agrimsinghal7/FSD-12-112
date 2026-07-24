@@ -52,6 +52,7 @@ orderSystem.placeOrder({
     { name: "Mechanical Keyboard", qty: 1 },
     { name: "wireless headphones", qty: 2 },
     { name: "USB-C Hub", qty: 1 },
+    { name: "Laptop Stand", qty: 1 },
   ],
   total: 2499,
 });
