@@ -15,11 +15,11 @@ const checkout = (name) => {
   console.log(`${name} logged out`);
 };
 const task = new EventEmitter();
-task.once("greet", start);
-task.on("greet", login);
-task.on("greet", working);
-task.on("greet", checkout);
-
-task.emit("greet", "Agrim Singhal");
-task.emit("greet", "Aditya verma");
-task.emit("greet", "Anav Singhal");
+task.on("login", login);
+task.on("start", start);
+task.on("working", working);
+task.on("checkout", checkout);
+task.emit("login", "Agrim Singhal");
+task.emit("start");
+task.emit("working", "Agrim Singhal");
+task.emit("checkout", "Agrim Singhal");
