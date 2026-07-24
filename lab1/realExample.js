@@ -45,7 +45,7 @@ orderSystem.on("error", (err) => {
 // --- Simulate placing an order ---
 orderSystem.placeOrder({
   id: "ORD1001",
-  customerName: "Dhanesh Kumar",
+  customerName: "Agrim Singhal",
   email: "dhanesh@example.com",
   items: [
     { name: "Wireless Mouse", qty: 1 },
