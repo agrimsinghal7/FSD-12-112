@@ -46,10 +46,12 @@ orderSystem.on("error", (err) => {
 orderSystem.placeOrder({
   id: "ORD1001",
   customerName: "Agrim Singhal",
-  email: "dhanesh@example.com",
+  email: "Agrim@example.com",
   items: [
     { name: "Wireless Mouse", qty: 1 },
     { name: "Mechanical Keyboard", qty: 1 },
+    { name: "wireless headphones", qty: 2 },
+    { name: "USB-C Hub", qty: 1 },
   ],
   total: 2499,
 });
