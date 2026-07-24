@@ -14,7 +14,11 @@ const working = (name) => {
 const checkout = (name) => {
   console.log(`${name} logged out`);
 };
-
+const task = new EventEmitter();
+task.on("login", login);
+task.on("start", start);
+task.on("working", working);
+task.on("checkout", checkout);
 login("John");
 start();
 working("John");
