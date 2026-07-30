@@ -11,4 +11,5 @@ button.on("click", (uname) => {      //here uname means
 button.emit("click","Raju");
 button.emit("click","Kaju");
 button.emit("click","Rani");
+button.emit("click","Mohit");
 button.emit("click",);
