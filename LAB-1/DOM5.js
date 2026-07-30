@@ -2,11 +2,11 @@
 import { EventEmitter } from "events";
 
 class Domclass extends EventEmitter {
-  addEventEmitter(eventName, callback) {
+  addEventListener(eventName, callback) {
     this.on(eventName, callback);
   }
-  removeaddlistener(eventName, callback) {
-    this.off(eventNamw, callback);
+  removeEventListener(eventName, callback) {
+    this.off(eventName, callback);
   }
   dispatchEvent(eventName, eventData = {}) {
     const event = {
@@ -17,3 +17,18 @@ class Domclass extends EventEmitter {
     this.emit(eventName, event);
   }
 }
+
+const button = new Domclass();
+const handleclick = (event) => {
+  console.log(`button clicked type:${event.type} at ${event.timespan}`);
+};
+
+button.addEventListener("click", handleclick);
+button.dispatchEvent("click", {
+  target: "submittedBtn",
+});
+
+button.removeEventListener("click", handleclick);
+button.dispatchEvent("click", {
+  target: "ResetBtn",
+});
