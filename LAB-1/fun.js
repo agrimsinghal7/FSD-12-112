@@ -18,5 +18,3 @@ function main() {
   console.log("end");
 }
 main();
-
-
