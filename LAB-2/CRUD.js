@@ -25,11 +25,11 @@ const addTocart = async (product) => {
 };
 
 const ShowCart = async () => {
-  const myCart = await getCart();
-  console.table(myCart);
+  const data = await getCart();
+  console.table(data);
   let total = 0;
-  for (let i = 0; i < myCart.length; i++) {
-    total = total + myCart[i].qty * myCart[i].price;
+  for (let i = 0; i < data.length; i++) {
+    total = total + data[i].qty * data[i].price;
   }
   console.log("You have to pay bill: Rs.", total);
 };
