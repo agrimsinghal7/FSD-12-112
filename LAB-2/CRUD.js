@@ -14,6 +14,17 @@ const saveCart = async (myCart) => {
   await writeFile(FILE, JSON.stringify(myCart, null, 2));
 };
 
+const updateCart = async (pid, value) => {
+  const data = await getCart();
+  const isFound = data.find((item) => item.id == pid);
+  if (isFound) {
+    isFound.qty += value;
+    await saveCart(data);
+    console.log("Product quantity updated sucessfully");
+  } else {
+    console.log("Product is not Found");
+  }
+};
 const addTocart = async (product) => {
   const myCart = await getCart();
   const isFound = myCart.find((item) => item.id === product.id);
@@ -53,7 +64,7 @@ const removeFromCart = async (pid) => {
   const newCount = newData.length;
 
   if (count == newCount) {
-    log("pid not found");
+    console.log("Pid not found");
   } else {
     await saveCart(newData);
     console.log(`product with id ${pid} delete successfully`);
@@ -95,7 +106,10 @@ const main = async () => {
 
         break;
       case 4:
-        console.log("Update product quantity");
+        let pid2 = await cin.question("Enter product id to update:");
+        let value = await cin.question("+1 increaee,-1 decrease");
+        await updateCart(Number(pid), Number(value));
+
         break;
       case 5:
         console.log("See you later");
