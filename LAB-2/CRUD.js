@@ -90,8 +90,8 @@ const main = async () => {
 
         break;
       case 3:
-        let removeId = await cin.question("Enter product id to remove: ");
-        await removeFromCart(Number(removeId));
+        let pid = await cin.question("Enter product id to remove: ");
+        await removeFromCart(Number(pid));
 
         break;
       case 4:
