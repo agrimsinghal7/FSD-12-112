@@ -1,6 +1,8 @@
 import readline from "readline/promises";
 import { stdin, stdout } from "process";
 import { readFile, writeFile } from "fs/promises";
+import { get } from "http";
+import { count } from "console";
 
 const FILE = "product.json";
 
@@ -35,15 +37,26 @@ const ShowCart = async () => {
   console.log("You have to pay bill: Rs.", total);
 };
 
-const removeFromCart = async (id) => {
-  const myCart = await getCart();
-  const index = myCart.findIndex((item) => item.id === id);
-  if (index !== -1) {
-    const removed = myCart.splice(index, 1);
-    await saveCart(myCart);
-    console.log(`Product with id ${id} removed from cart`);
+const removeFromCart = async (pid) => {
+  // const myCart = await getCart();
+  // const index = myCart.findIndex((item) => item.id === id);
+  // if (index !== -1) {
+  //   const removed = myCart.splice(index, 1);
+  //   await saveCart(myCart);
+  //   console.log(`Product with id ${id} removed from cart`);
+  // } else {
+  //   console.log(`Product with id ${id} not found in cart`);
+  // }
+  const data = await getCart();
+  const count = data.length;
+  const newData = data.filter((item) => item.id != pid);
+  const newCount = newData.length;
+
+  if (count == newCount) {
+    log("pid not found");
   } else {
-    console.log(`Product with id ${id} not found in cart`);
+    await saveCart(newData);
+    console.log(`product with id ${pid} delete successfully`);
   }
 };
 
