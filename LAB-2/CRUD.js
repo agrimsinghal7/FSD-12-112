@@ -27,6 +27,11 @@ const addTocart = async (product) => {
 const ShowCart = async () => {
   const myCart = await getCart();
   console.table(myCart);
+  let total = 0;
+  for (let i = 0; i < myCart.length; i++) {
+    total = total + myCart[i].qty * myCart[i].price;
+  }
+  console.log("You have to pay bill: Rs.", total);
 };
 
 const removeFromCart = async (id) => {
